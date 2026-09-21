@@ -17,6 +17,7 @@ import { Route as VisionRouteImport } from './routes/vision'
 import { Route as TowerRouteImport } from './routes/tower'
 import { Route as ToursRouteImport } from './routes/tours'
 import { Route as TodayRouteImport } from './routes/today'
+import { Route as ShowcaseRouteImport } from './routes/showcase'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SequencesRouteImport } from './routes/sequences'
 import { Route as RevivalRouteImport } from './routes/revival'
@@ -187,6 +188,11 @@ const ToursRoute = ToursRouteImport.update({
 const TodayRoute = TodayRouteImport.update({
   id: '/today',
   path: '/today',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowcaseRoute = ShowcaseRouteImport.update({
+  id: '/showcase',
+  path: '/showcase',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettingsRoute = SettingsRouteImport.update({
@@ -892,6 +898,7 @@ export interface FileRoutesByFullPath {
   '/revival': typeof RevivalRoute
   '/sequences': typeof SequencesRoute
   '/settings': typeof SettingsRoute
+  '/showcase': typeof ShowcaseRoute
   '/today': typeof TodayRoute
   '/tours': typeof ToursRoute
   '/tower': typeof TowerRouteWithChildren
@@ -1032,6 +1039,7 @@ export interface FileRoutesByTo {
   '/revival': typeof RevivalRoute
   '/sequences': typeof SequencesRoute
   '/settings': typeof SettingsRoute
+  '/showcase': typeof ShowcaseRoute
   '/today': typeof TodayRoute
   '/tours': typeof ToursRoute
   '/vision': typeof VisionRoute
@@ -1173,6 +1181,7 @@ export interface FileRoutesById {
   '/revival': typeof RevivalRoute
   '/sequences': typeof SequencesRoute
   '/settings': typeof SettingsRoute
+  '/showcase': typeof ShowcaseRoute
   '/today': typeof TodayRoute
   '/tours': typeof ToursRoute
   '/tower': typeof TowerRouteWithChildren
@@ -1316,6 +1325,7 @@ export interface FileRouteTypes {
     | '/revival'
     | '/sequences'
     | '/settings'
+    | '/showcase'
     | '/today'
     | '/tours'
     | '/tower'
@@ -1456,6 +1466,7 @@ export interface FileRouteTypes {
     | '/revival'
     | '/sequences'
     | '/settings'
+    | '/showcase'
     | '/today'
     | '/tours'
     | '/vision'
@@ -1596,6 +1607,7 @@ export interface FileRouteTypes {
     | '/revival'
     | '/sequences'
     | '/settings'
+    | '/showcase'
     | '/today'
     | '/tours'
     | '/tower'
@@ -1738,6 +1750,7 @@ export interface RootRouteChildren {
   RevivalRoute: typeof RevivalRoute
   SequencesRoute: typeof SequencesRoute
   SettingsRoute: typeof SettingsRoute
+  ShowcaseRoute: typeof ShowcaseRoute
   TodayRoute: typeof TodayRoute
   ToursRoute: typeof ToursRoute
   TowerRoute: typeof TowerRouteWithChildren
@@ -1848,6 +1861,13 @@ declare module '@tanstack/react-router' {
       path: '/today'
       fullPath: '/today'
       preLoaderRoute: typeof TodayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/showcase': {
+      id: '/showcase'
+      path: '/showcase'
+      fullPath: '/showcase'
+      preLoaderRoute: typeof ShowcaseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settings': {
@@ -2951,6 +2971,7 @@ const rootRouteChildren: RootRouteChildren = {
   RevivalRoute: RevivalRoute,
   SequencesRoute: SequencesRoute,
   SettingsRoute: SettingsRoute,
+  ShowcaseRoute: ShowcaseRoute,
   TodayRoute: TodayRoute,
   ToursRoute: ToursRoute,
   TowerRoute: TowerRouteWithChildren,

@@ -151,6 +151,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/monitoring", label: "Command Center", icon: Activity, accent: true },
       { to: "/productivity", label: "Productivity", icon: Timer, accent: true },
       { to: "/health", label: "System Health", icon: HeartPulse },
+      { to: "/showcase", label: "Assignment Showcase", icon: Rocket, accent: true },
       { to: "/help", label: "How to use", icon: HelpCircle },
     ],
     "flow-ops": [
@@ -209,6 +210,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/zone-brain", label: "Zone Brain", icon: MapPin, accent: true },
       { to: "/monitoring", label: "Command Center", icon: Activity, accent: true },
       { to: "/productivity", label: "Productivity", icon: Timer, accent: true },
+      { to: "/showcase", label: "Assignment Showcase", icon: Rocket, accent: true },
       { to: "/health", label: "System Health", icon: HeartPulse },
       { to: "/help", label: "How to use", icon: HelpCircle },
     ],
@@ -265,6 +267,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/queue", label: "Action Queue", icon: Zap, accent: true },
       { to: "/zone-brain", label: "Zone Brain", icon: MapPin },
       { to: "/productivity", label: "Productivity", icon: Timer, accent: true },
+      { to: "/showcase", label: "Assignment Showcase", icon: Rocket, accent: true },
       { to: "/health", label: "System Health", icon: HeartPulse },
       { to: "/help", label: "How to use", icon: HelpCircle },
     ],
@@ -292,6 +295,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/owner/blocks", label: "Block Requests", icon: Inbox },
       { to: "/owner/visits", label: "Visits", icon: Camera },
       { to: "/owner/insights", label: "Insights", icon: IndianRupee },
+      { to: "/showcase", label: "Assignment Showcase", icon: Rocket, accent: true },
       { to: "/help", label: "How to use", icon: HelpCircle },
     ],
   };
