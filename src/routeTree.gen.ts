@@ -24,6 +24,7 @@ import { Route as RevenueRouteImport } from './routes/revenue'
 import { Route as QueueRouteImport } from './routes/queue'
 import { Route as ProductivityRouteImport } from './routes/productivity'
 import { Route as OsRouteImport } from './routes/os'
+import { Route as NurturingRouteImport } from './routes/nurturing'
 import { Route as MymovesRouteImport } from './routes/mymoves'
 import { Route as MyWorkRouteImport } from './routes/my-work'
 import { Route as MovementSplitRouteImport } from './routes/movement-split'
@@ -57,6 +58,7 @@ import { Route as BookingFlowSplitRouteImport } from './routes/booking-flow-spli
 import { Route as BookingFlow100xRouteImport } from './routes/booking-flow-100x'
 import { Route as BookingFlowRouteImport } from './routes/booking-flow'
 import { Route as AssignmentRouteImport } from './routes/assignment'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as AcademyRouteImport } from './routes/academy'
@@ -222,6 +224,11 @@ const OsRoute = OsRouteImport.update({
   path: '/os',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NurturingRoute = NurturingRouteImport.update({
+  id: '/nurturing',
+  path: '/nurturing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MymovesRoute = MymovesRouteImport.update({
   id: '/mymoves',
   path: '/mymoves',
@@ -385,6 +392,11 @@ const BookingFlowRoute = BookingFlowRouteImport.update({
 const AssignmentRoute = AssignmentRouteImport.update({
   id: '/assignment',
   path: '/assignment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -838,6 +850,7 @@ export interface FileRoutesByFullPath {
   '/academy': typeof AcademyRoute
   '/activity': typeof ActivityRoute
   '/admin': typeof AdminRouteWithChildren
+  '/analytics': typeof AnalyticsRoute
   '/assignment': typeof AssignmentRoute
   '/booking-flow': typeof BookingFlowRoute
   '/booking-flow-100x': typeof BookingFlow100xRoute
@@ -871,6 +884,7 @@ export interface FileRoutesByFullPath {
   '/movement-split': typeof MovementSplitRoute
   '/my-work': typeof MyWorkRoute
   '/mymoves': typeof MymovesRoute
+  '/nurturing': typeof NurturingRoute
   '/os': typeof OsRoute
   '/productivity': typeof ProductivityRoute
   '/queue': typeof QueueRoute
@@ -976,6 +990,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/academy': typeof AcademyRoute
   '/activity': typeof ActivityRoute
+  '/analytics': typeof AnalyticsRoute
   '/assignment': typeof AssignmentRoute
   '/booking-flow': typeof BookingFlowRoute
   '/booking-flow-100x': typeof BookingFlow100xRoute
@@ -1009,6 +1024,7 @@ export interface FileRoutesByTo {
   '/movement-split': typeof MovementSplitRoute
   '/my-work': typeof MyWorkRoute
   '/mymoves': typeof MymovesRoute
+  '/nurturing': typeof NurturingRoute
   '/os': typeof OsRoute
   '/productivity': typeof ProductivityRoute
   '/queue': typeof QueueRoute
@@ -1115,6 +1131,7 @@ export interface FileRoutesById {
   '/academy': typeof AcademyRoute
   '/activity': typeof ActivityRoute
   '/admin': typeof AdminRouteWithChildren
+  '/analytics': typeof AnalyticsRoute
   '/assignment': typeof AssignmentRoute
   '/booking-flow': typeof BookingFlowRoute
   '/booking-flow-100x': typeof BookingFlow100xRoute
@@ -1148,6 +1165,7 @@ export interface FileRoutesById {
   '/movement-split': typeof MovementSplitRoute
   '/my-work': typeof MyWorkRoute
   '/mymoves': typeof MymovesRoute
+  '/nurturing': typeof NurturingRoute
   '/os': typeof OsRoute
   '/productivity': typeof ProductivityRoute
   '/queue': typeof QueueRoute
@@ -1256,6 +1274,7 @@ export interface FileRouteTypes {
     | '/academy'
     | '/activity'
     | '/admin'
+    | '/analytics'
     | '/assignment'
     | '/booking-flow'
     | '/booking-flow-100x'
@@ -1289,6 +1308,7 @@ export interface FileRouteTypes {
     | '/movement-split'
     | '/my-work'
     | '/mymoves'
+    | '/nurturing'
     | '/os'
     | '/productivity'
     | '/queue'
@@ -1394,6 +1414,7 @@ export interface FileRouteTypes {
     | '/'
     | '/academy'
     | '/activity'
+    | '/analytics'
     | '/assignment'
     | '/booking-flow'
     | '/booking-flow-100x'
@@ -1427,6 +1448,7 @@ export interface FileRouteTypes {
     | '/movement-split'
     | '/my-work'
     | '/mymoves'
+    | '/nurturing'
     | '/os'
     | '/productivity'
     | '/queue'
@@ -1532,6 +1554,7 @@ export interface FileRouteTypes {
     | '/academy'
     | '/activity'
     | '/admin'
+    | '/analytics'
     | '/assignment'
     | '/booking-flow'
     | '/booking-flow-100x'
@@ -1565,6 +1588,7 @@ export interface FileRouteTypes {
     | '/movement-split'
     | '/my-work'
     | '/mymoves'
+    | '/nurturing'
     | '/os'
     | '/productivity'
     | '/queue'
@@ -1672,6 +1696,7 @@ export interface RootRouteChildren {
   AcademyRoute: typeof AcademyRoute
   ActivityRoute: typeof ActivityRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AnalyticsRoute: typeof AnalyticsRoute
   AssignmentRoute: typeof AssignmentRoute
   BookingFlowRoute: typeof BookingFlowRoute
   BookingFlow100xRoute: typeof BookingFlow100xRoute
@@ -1705,6 +1730,7 @@ export interface RootRouteChildren {
   MovementSplitRoute: typeof MovementSplitRoute
   MyWorkRoute: typeof MyWorkRoute
   MymovesRoute: typeof MymovesRoute
+  NurturingRoute: typeof NurturingRoute
   OsRoute: typeof OsRoute
   ProductivityRoute: typeof ProductivityRoute
   QueueRoute: typeof QueueRoute
@@ -1871,6 +1897,13 @@ declare module '@tanstack/react-router' {
       path: '/os'
       fullPath: '/os'
       preLoaderRoute: typeof OsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nurturing': {
+      id: '/nurturing'
+      path: '/nurturing'
+      fullPath: '/nurturing'
+      preLoaderRoute: typeof NurturingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mymoves': {
@@ -2102,6 +2135,13 @@ declare module '@tanstack/react-router' {
       path: '/assignment'
       fullPath: '/assignment'
       preLoaderRoute: typeof AssignmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -2869,6 +2909,7 @@ const rootRouteChildren: RootRouteChildren = {
   AcademyRoute: AcademyRoute,
   ActivityRoute: ActivityRoute,
   AdminRoute: AdminRouteWithChildren,
+  AnalyticsRoute: AnalyticsRoute,
   AssignmentRoute: AssignmentRoute,
   BookingFlowRoute: BookingFlowRoute,
   BookingFlow100xRoute: BookingFlow100xRoute,
@@ -2902,6 +2943,7 @@ const rootRouteChildren: RootRouteChildren = {
   MovementSplitRoute: MovementSplitRoute,
   MyWorkRoute: MyWorkRoute,
   MymovesRoute: MymovesRoute,
+  NurturingRoute: NurturingRoute,
   OsRoute: OsRoute,
   ProductivityRoute: ProductivityRoute,
   QueueRoute: QueueRoute,
